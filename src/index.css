@@ -8,6 +8,9 @@
   --clr-dark-mode-bg: hsl(207, 26%, 17%);
   --clr-dark-mode-text: hsl(0, 0%, 100%);
 
+  /* light mode settings */
+  --clr-light-mode-text: hsl(200, 15%, 8%);
+
   --clr-white: hsl(0, 0%, 100%);
 
   --clr-dark-blue-ele: hsl(209, 23%, 22%);

@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import WrapperControls from '../styles/WrapperControls';
 import ThemeContext from './ThemeContext';
 import CountriesContext from './AllCountriesContext';
-import { IoIosArrowRoundBack } from 'react-icons/io';
+import { IoIosArrowRoundBack, IoIosArrowDown } from 'react-icons/io';
+import { MdSearch } from 'react-icons/md';
 
 const Controls = ({ countries, setCountries }) => {
   const data = useContext(CountriesContext);
@@ -53,8 +54,17 @@ const Controls = ({ countries, setCountries }) => {
       )}
 
       {isHome && (
-        <div>
-          <select onChange={handleRegion}>
+        <div className='home-controls'>
+          <form className='search-form'>
+            <input
+              type='text'
+              placeholder='Search for a country ...'
+              onChange={handleSearch}
+            />
+            <MdSearch />
+          </form>
+
+          <select className='search-region' onChange={handleRegion}>
             <option value='all'>All Regions</option>
             {regions &&
               regions.map((region, index) => {
@@ -65,16 +75,6 @@ const Controls = ({ countries, setCountries }) => {
                 );
               })}
           </select>
-        </div>
-      )}
-
-      {isHome && (
-        <div>
-          <input
-            type='text'
-            placeholder='Search for a country ...'
-            onChange={handleSearch}
-          />
         </div>
       )}
     </WrapperControls>
