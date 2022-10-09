@@ -2,8 +2,14 @@
 
 :root {
   --max-width: 1440px;
-  --clr-white: hsl(0, 0%, 100%);
+
   --clr-light-bg: hsl(0, 0%, 98%);
+  /* dark mode settings */
+  --clr-dark-mode-bg: hsl(207, 26%, 17%);
+  --clr-dark-mode-text: hsl(0, 0%, 100%);
+
+  --clr-white: hsl(0, 0%, 100%);
+
   --clr-dark-blue-ele: hsl(209, 23%, 22%);
   --fw-light: 300;
   --fw-med: 600;
@@ -21,7 +27,14 @@ html {
   font-size: 100%;
   line-height: 1.5;
   font-weight: 300;
-  background: var(--clr-light-bg);
+}
+body.dark {
+  background: var(--clr-dark-mode-bg);
+  transition: background 0.3s ease-in, color 0.5s linear;
+}
+body.light {
+  background: var(--clr-white);
+  transition: background 0.3s ease-in, color 0.5s linear;
 }
 img {
   max-width: 100%;

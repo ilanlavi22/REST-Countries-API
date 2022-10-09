@@ -2,7 +2,16 @@ import '../index.css';
 import styled from 'styled-components';
 
 const WrapperHeader = styled.header`
-  background: var(--clr-white);
+  &.light {
+    background: var(--clr-white);
+    transition: background 0.3s ease-in, color 0.5s linear;
+  }
+  &.dark {
+    background: var(--clr-dark-mode-bg);
+    color: var(--clr-dark-mode-text);
+    transition: background 0.3s ease-in, color 0.5s linear;
+  }
+
   box-shadow: 0px 0px 6px -2px rgb(0 0 0 / 35%);
   .content-container {
     display: flex;
@@ -13,17 +22,19 @@ const WrapperHeader = styled.header`
     padding: 2rem;
     margin: 0 auto;
 
-    h1 {
+    .logo-text {
       font-size: 1.65em;
       padding-block-end: 1rem;
+      font-weight: var(--fw-bold);
     }
     .mode-switch {
       display: flex;
       align-items: center;
       gap: 0.9rem;
       font-weight: var(--fw-med);
-      color: var(--clr-dark-blue-ele);
+      /* color: var(--clr-dark-blue-ele); */
       font-size: 1.2em;
+      cursor: pointer;
 
       svg {
         stroke-width: 0.5;
@@ -37,7 +48,7 @@ const WrapperHeader = styled.header`
       flex-direction: row;
       justify-content: space-between;
 
-      h1 {
+      .logo-text {
         padding-block-end: 0;
       }
     }
@@ -46,7 +57,7 @@ const WrapperHeader = styled.header`
     .content-container {
       padding: 1.3rem 4rem;
 
-      h1 {
+      .logo-text {
         font-size: 1.5em;
       }
       .mode-switch {

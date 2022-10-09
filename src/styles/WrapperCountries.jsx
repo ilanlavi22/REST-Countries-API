@@ -2,6 +2,15 @@ import '../index.css';
 import styled from 'styled-components';
 
 const WrapperCountries = styled.section`
+  &.light {
+    background: var(--clr-white);
+    transition: background 0.3s ease-in, color 0.5s linear;
+  }
+  &.dark {
+    background: var(--clr-dark-mode-bg);
+    color: var(--clr-dark-mode-text);
+    transition: background 0.3s ease-in, color 0.5s linear;
+  }
   max-width: var(--max-width);
   padding-inline: 4rem;
   margin: 100px auto;

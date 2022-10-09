@@ -1,14 +1,20 @@
-import { BsMoon } from 'react-icons/bs';
+import { BsMoon, BsMoonFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 import WrapperHeader from '../styles/WrapperHeader';
-const Header = ({ toggleTheme }) => {
+import ThemeContext from './ThemeContext';
+import { useContext } from 'react';
+
+const Header = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   return (
-    <WrapperHeader>
+    <WrapperHeader className={theme}>
       <div className='content-container'>
-        <h1>Where in the world?</h1>
-        <div className='mode-switch'>
-          <button onClick={toggleTheme}>switch</button>
-          <BsMoon />
-          Dark Mode
+        <Link className='logo-text' to={'/'}>
+          Where in the world?
+        </Link>
+        <div className='mode-switch' onClick={toggleTheme}>
+          {theme === 'light' ? <BsMoon /> : <BsMoonFill />}
+          {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
         </div>
       </div>
     </WrapperHeader>

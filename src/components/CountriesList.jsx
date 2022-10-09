@@ -1,8 +1,12 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import ThemeContext from './ThemeContext';
 import WrapperCountries from '../styles/WrapperCountries';
+
 const CountriesList = ({ countries }) => {
+  const { theme } = useContext(ThemeContext);
   return (
-    <WrapperCountries>
+    <WrapperCountries className={theme}>
       {countries &&
         countries
           .sort((a, b) => (a.name.common > b.name.common ? 1 : -1))
@@ -17,7 +21,10 @@ const CountriesList = ({ countries }) => {
             return (
               <div className='country-box' key={cca2}>
                 <Link to={`country/${cca2}`.toLowerCase()}>
-                  <img src={`https://flagcdn.com/${cca2.toLowerCase()}.svg`} alt='' />
+                  <img
+                    src={`https://flagcdn.com/${cca2.toLowerCase()}.svg`}
+                    alt=''
+                  />
                   <div className='box-content'>
                     <h3>{common}</h3>
                     <p>
